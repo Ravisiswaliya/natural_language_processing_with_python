@@ -12,3 +12,4 @@ tok = nltk.sent_tokenize(simple_text)
 
 for t in tok:
     print(t)
+
