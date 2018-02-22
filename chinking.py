@@ -9,18 +9,18 @@ token = PunktSentenceTokenizer(train_data)
 
 tokened = token.tokenize(sample_text)
 
-
 for i in tokened:
     words = nltk.word_tokenize(i)
     tagged = nltk.pos_tag(words)
-    #print(tagged)
+    # print(tagged)
 
-    chunkGram = r"""Chunk: {<RB.?>*<VB.?>*<NNP.?>$}"""
-
-    ch = nltk.RegexpParser(chunkGram)
-    chd =  ch.parse(tagged)
-    print(chd)
-
+    cG = r"""Chunk:{<.*>+}
+            }<VB.?|IN|NNP|DT|TO>+{
+            """
+    cP = nltk.RegexpParser(cG)
+    cD = cP.parse(tagged)
+    print(cD)
+    #cD.draw()
 
 
 
