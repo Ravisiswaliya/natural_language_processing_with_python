@@ -4,9 +4,11 @@ import nltk
 
 snts = "I'm a python developer"
 
+#word tokenize
 tok = word_tokenize(snts)
 print(tok)
 
+#part of speech tag
 tag = pos_tag(tok)
 print(tag)
 
